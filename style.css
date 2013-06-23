@@ -54,6 +54,10 @@ input {
 	display: block;
 }
 
+.bottom {
+	margin: 40px 0 40px 0;
+}
+
 .button {
 	background-color:#86e062;
 	-moz-border-radius:10px;
