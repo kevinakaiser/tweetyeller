@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Twitter Yelling</title>
+    <link rel="stylesheet" type="text/css" href="/static/style.css" media="screen" />
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="http://code.jquery.com/jquery-migrate-1.1.0.min.js"></script>
+  	<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
+  </head>
+  <body>
+    <div id="wrapper">
+    	<div id="content">
+    		<h1>Twitter Yeller</h1>
+    		<p>Create a new Twitter account and enter your credentials and the handle of the account you'd like to yell below.</p>
+    		<form id="email_form" name="email_form" action="/secretdatabase">
+	    		<ul>
+	    			<li><label>Twitter username: </label><input type="text" name="user"></li>
+	    			<li><label>Twitter password: </label><input type="text" name="password"></li>
+	    			<li><label>Account to yell: @</label><input type="text" name="yellthis"></li>
+	    			<li><input type="submit" value="Submit"></li>
+	    		</ul>
+	    	</form>
+    		<!--<div class="button">button</div>-->
+    	</div><!--content-->
+    </div><!--wrapper-->
+  </body>
+</html>

