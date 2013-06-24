@@ -15,7 +15,6 @@ def home():
 
 @app.route('/secretdatabase', methods=['POST'])
 def storecredentials():
-
 	try:
 		yeller = { "yeller username": request.form['yeller'],
             	   "password": request.form['password'],
@@ -28,12 +27,12 @@ def storecredentials():
 		victim = {
 				"victim username": request.form['victim']
 		}
-
 		user_data = {"yeller": yeller, "victim": victim}
 		multiple_user_data.append(user_data)
-		print(accounts)
+		print user_data
 		return 'Success'
-  	except:
+  	except Exception, e:
+  		print e
   		return 'Credentials provided are insufficient'
 
 if __name__ == "__main__":
