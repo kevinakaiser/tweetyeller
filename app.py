@@ -35,5 +35,25 @@ def storecredentials():
   		print e
   		return 'Credentials provided are insufficient'
 
+def first_tweet(user_data):
+	victim_last_tweet = get_tweets(user_data.victim.handle)[0]
+	send_tweet(user_data.yeller, str.upper(victim_last_tweet))
+
+def subsequent_tweets(user_data):
+	vict_tweets = get_tweets(user_data.victim.handle)
+	yell_last_tweet = get_tweets(user_data.yeller.handle)[0]
+	gap = tweet_gap(vict_tweets, yell_last_tweet)
+	to_tweet = vict_tweets[0:gap].reverse()
+	for tweet in to_tweet:
+		send_tweet(user_data.yeller, tweet)
+
+def tweet_gap(vict_tweets, yell_last_tweet):
+	ticker = 0
+	for tweet in vict_tweets:
+		if str.toupper(tweet) == yell_last_tweet:
+			return ticker
+		else :
+			ticker += 1
+
 if __name__ == "__main__":
     app.run()
